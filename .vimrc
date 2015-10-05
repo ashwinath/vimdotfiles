@@ -1,3 +1,4 @@
+"install vundle if no vundle
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
