@@ -1,11 +1,11 @@
 "install vundle if no vundle
 let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
 if !filereadable(vundle_readme)
         echo "Installing Vundle.."
         echo ""
         silent !mkdir -p ~/.vim/bundle
-        silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+        silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
         let iCanHazVundle=0
 endif
 set nocompatible              " be iMproved, required
@@ -133,10 +133,8 @@ if !exists('g:airline_symbols')
 "auto start nerdtree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" vim theme
-colorscheme kalisi
-let g:airline_theme='kalisi'
-set background=dark
+"i like my transparent background
+hi Normal ctermbg=none
 "wrap
 set wrap
 " let me use the damn mouse to resize windows
