@@ -1,4 +1,5 @@
-dont forget to do a 
-ln -s .vimrc ~
-while u cd-ed into the folder
-auto installs vundle.
+# Ashwin's vim dotfiles.
+for use on cygwin, make sure you patch the fonts.
+copy ttf files into windows fonts
+install pwoerline fonts
+and voila.
