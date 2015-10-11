@@ -112,26 +112,27 @@ let mapleader=","
 "airline
 set laststatus=2
 set t_Co=256
+let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
   endif
 
-  " unicode symbols
-  let g:airline_left_sep = '»'
-  let g:airline_left_sep = '▶'
-  let g:airline_right_sep = '«'
-  let g:airline_right_sep = '◀'
-  let g:airline_symbols.crypt = '🔒'
-  let g:airline_symbols.linenr = '␊'
-  let g:airline_symbols.linenr = '␤'
-  let g:airline_symbols.linenr = '¶'
-  let g:airline_symbols.branch = '⎇'
-  let g:airline_symbols.paste = 'ρ'
-  let g:airline_symbols.paste = 'Þ'
-  let g:airline_symbols.paste = '∥'
-  let g:airline_symbols.whitespace = 'Ξ'
-"auto start nerdtree
-autocmd StdinReadPre * let s:std_in=1
+ " unicode symbols
+  "let g:airline_left_sep = '»'
+  "let g:airline_left_sep = '▶'
+  "let g:airline_right_sep = '«'
+  "let g:airline_right_sep = '◀'
+  "let g:airline_symbols.crypt = '🔒'
+  "let g:airline_symbols.linenr = '␊'
+  "let g:airline_symbols.linenr = '␤'
+  "let g:airline_symbols.linenr = '¶'
+  "let g:airline_symbols.branch = '⎇'
+  "let g:airline_symbols.paste = 'ρ'
+  "let g:airline_symbols.paste = 'Þ'
+  "let g:airline_symbols.paste = '∥'
+  "let g:airline_symbols.whitespace = 'Ξ'
+"""auto start nerdtree
+"autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "i like my transparent background
 hi Normal ctermbg=none
