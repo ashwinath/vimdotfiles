@@ -84,14 +84,13 @@ set shiftwidth=4
 set tabstop=4
 
 " show a visual line under the cursor's current line 
-"set cursorline
+set cursorline
 
 " show the matching part of the pair for [] {} and ()
 set showmatch
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
-"let g:pymode_python = 'python3'
 
 " History/Undo settings {{{
 "
@@ -113,33 +112,14 @@ let mapleader=","
 set laststatus=2
 set t_Co=256
 let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
-
- " unicode symbols
-  "let g:airline_left_sep = '»'
-  "let g:airline_left_sep = '▶'
-  "let g:airline_right_sep = '«'
-  "let g:airline_right_sep = '◀'
-  "let g:airline_symbols.crypt = '🔒'
-  "let g:airline_symbols.linenr = '␊'
-  "let g:airline_symbols.linenr = '␤'
-  "let g:airline_symbols.linenr = '¶'
-  "let g:airline_symbols.branch = '⎇'
-  "let g:airline_symbols.paste = 'ρ'
-  "let g:airline_symbols.paste = 'Þ'
-  "let g:airline_symbols.paste = '∥'
-  "let g:airline_symbols.whitespace = 'Ξ'
-"""auto start nerdtree
-"autocmd StdinReadPre * let s:std_in=1
+" opens nerd tree if no arguments appended to vim
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"
 "i like my transparent background
 hi Normal ctermbg=none
+
 "wrap
 set wrap
+
 " let me use the damn mouse to resize windows
 set mouse=a
-set ttymouse=xterm
-"auto complete brackets
-"
