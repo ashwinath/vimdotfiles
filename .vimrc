@@ -26,11 +26,11 @@ Plugin 'bling/vim-airline'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
-Bundle 'https://github.com/freeo/vim-kalisi'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-surround'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdcommenter'
+Bundle 'DrSpatula/vim-buddy'
 call vundle#end()
 " .vimrc folding
 augroup filetype_vim
@@ -117,6 +117,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "
 "i like my transparent background
 hi Normal ctermbg=none
+color buddy
 
 "wrap
 set wrap
