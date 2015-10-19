@@ -19,7 +19,7 @@ call vundle#begin()
 "
 " " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-"Plugin 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
@@ -31,6 +31,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdcommenter'
 Bundle 'DrSpatula/vim-buddy'
+Plugin 'jlesquembre/peaksea'
 call vundle#end()
 " .vimrc folding
 augroup filetype_vim
@@ -48,7 +49,7 @@ set splitright
 " lets remap the esc key to something abit easier to press
 inoremap jk <ESC>
 
-" scrolling thru python output
+" remap multiple window keys
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
@@ -111,16 +112,20 @@ let mapleader=","
 "airline
 set laststatus=2
 set t_Co=256
+set term=xterm-256
 let g:airline_powerline_fonts = 1
 " opens nerd tree if no arguments appended to vim
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "
 "i like my transparent background
-hi Normal ctermbg=none
-color buddy
+"hi Normal ctermbg=none
+color peaksea
 
 "wrap
 set wrap
 
 " let me use the damn mouse to resize windows
 set mouse=a
+
+" workaround for backspace not working
+set bs=2
