@@ -32,11 +32,19 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdcommenter'
 Bundle 'DrSpatula/vim-buddy'
 Plugin 'jlesquembre/peaksea'
+Plugin 'Yggdroot/indentLine'
+Plugin 'petelewis/vim-evolution'
 call vundle#end()
 " .vimrc folding
 augroup filetype_vim
   autocmd FileType vim setlocal foldmethod=marker
 set nofoldenable    " disable foldingaugroup END
+
+" vertical line indentation
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#09AA08'
+let g:indentLine_char = '|'
+
 " Fold with space
 nnoremap <space> za
 "enable syntax highlighting
@@ -117,9 +125,6 @@ let g:airline_powerline_fonts = 1
 " opens nerd tree if no arguments appended to vim
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "
-"i like my transparent background
-"hi Normal ctermbg=none
-color peaksea
 
 "wrap
 set wrap
@@ -129,3 +134,5 @@ set mouse=a
 
 " workaround for backspace not working
 set bs=2
+
+colo evolution
