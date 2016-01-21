@@ -34,6 +34,7 @@ Bundle 'DrSpatula/vim-buddy'
 Plugin 'jlesquembre/peaksea'
 Plugin 'Yggdroot/indentLine'
 Plugin 'petelewis/vim-evolution'
+Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 " .vimrc folding
 augroup filetype_vim
@@ -136,3 +137,5 @@ set mouse=a
 set bs=2
 
 colo evolution
+" delimitmate settings
+let delimitMate_expand_cr = 1
