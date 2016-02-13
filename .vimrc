@@ -35,6 +35,7 @@ Plugin 'jlesquembre/peaksea'
 Plugin 'Yggdroot/indentLine'
 Plugin 'petelewis/vim-evolution'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'mhartington/oceanic-next'
 call vundle#end()
 " .vimrc folding
 augroup filetype_vim
@@ -136,6 +137,9 @@ set mouse=a
 " workaround for backspace not working
 set bs=2
 
-colo evolution
 " delimitmate settings
 let delimitMate_expand_cr = 1
+
+"colour scheme
+colorscheme OceanicNext
+set background=dark
