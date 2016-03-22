@@ -36,6 +36,10 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'petelewis/vim-evolution'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mhartington/oceanic-next'
+Plugin 'lanox/lanox-vim-theme'
+Plugin 'scrooloose/syntastic'
+
+
 call vundle#end()
 " .vimrc folding
 augroup filetype_vim
@@ -141,5 +145,5 @@ set bs=2
 let delimitMate_expand_cr = 1
 
 "colour scheme
-colorscheme OceanicNext
+colorscheme lanox
 set background=dark
