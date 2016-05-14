@@ -126,10 +126,11 @@ let mapleader=","
 "airline
 set laststatus=2
 set t_Co=256
-set term=xterm-256
+"set term=xterm
 let g:airline_powerline_fonts = 1
 " opens nerd tree if no arguments appended to vim
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+let NERDTreeSHowHidden=1
 "
 
 "wrap
