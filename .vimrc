@@ -20,36 +20,29 @@ call vundle#begin()
 " " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
-Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-surround'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdcommenter'
-Bundle 'DrSpatula/vim-buddy'
-Plugin 'jlesquembre/peaksea'
-Plugin 'Yggdroot/indentLine'
-Plugin 'petelewis/vim-evolution'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'mhartington/oceanic-next'
-Plugin 'lanox/lanox-vim-theme'
 Plugin 'scrooloose/syntastic'
+Plugin 'romainl/Apprentice'
 
+" Laravel/PHP specific packages
+Plugin 'jwalton512/vim-blade'
+Plugin 'markwu/vim-laravel4-snippets'
+
+autocmd FileType php set ft=php.laravel
 
 call vundle#end()
 " .vimrc folding
 augroup filetype_vim
   autocmd FileType vim setlocal foldmethod=marker
 set nofoldenable    " disable foldingaugroup END
-
-" vertical line indentation
-let g:indentLine_color_term = 239
-let g:indentLine_color_gui = '#09AA08'
-let g:indentLine_char = '|'
 
 " Fold with space
 nnoremap <space> za
@@ -80,8 +73,8 @@ set relativenumber
 
 " set line highlighting
 set cursorline
-" set tabs to have 2 spaces
-set ts=2
+" set tabs to have 4 spaces
+set ts=4
 
 " indent when moving to the next line while writing code
 set autoindent
@@ -94,9 +87,9 @@ filetype indent on
 set expandtab
 set smarttab
 
-" when using the >> or << commands, shift lines by 2 spaces
-set shiftwidth=2
-set tabstop=2
+" when using the >> or << commands, shift lines by 4 spaces
+set shiftwidth=4
+set tabstop=4
 
 " show a visual line under the cursor's current line 
 set cursorline
@@ -146,5 +139,10 @@ set bs=2
 let delimitMate_expand_cr = 1
 
 "colour scheme
-colorscheme lanox
+colorscheme apprentice
 set background=dark
+
+"Snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
