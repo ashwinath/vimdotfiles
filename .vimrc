@@ -122,7 +122,7 @@ set t_Co=256
 "set term=xterm
 let g:airline_powerline_fonts = 1
 " opens nerd tree if no arguments appended to vim
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeSHowHidden=1
 "
 
@@ -146,3 +146,6 @@ set background=dark
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+"ctrlp wildignores
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
