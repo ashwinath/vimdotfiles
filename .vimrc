@@ -149,3 +149,5 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 "ctrlp wildignores
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*/vendor/**
+set wildignore+=*/public/forum/**
