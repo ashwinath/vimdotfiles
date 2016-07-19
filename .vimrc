@@ -31,6 +31,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'romainl/Apprentice'
+Plugin 'vim-scripts/xoria256.vim'
 
 " Laravel/PHP specific packages
 Plugin 'jwalton512/vim-blade'
@@ -66,10 +67,18 @@ map <C-H> <C-W>h<C-W>_
 map <C-L> <C-W>l<C-W>_
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
+nmap <leader>w :w!<cr>
+nmap <C-v> :vertical resize +5<cr>
+nmap <C-b> :NERDTreeToggle<cr>
+
+" highlight search
+set hlsearch
+"incremental search
+set incsearch
 
 " show line numbers
 set number
-set relativenumber
+"set relativenumber
 
 " set line highlighting
 set cursorline
@@ -90,9 +99,6 @@ set smarttab
 " when using the >> or << commands, shift lines by 4 spaces
 set shiftwidth=4
 set tabstop=4
-
-" show a visual line under the cursor's current line 
-set cursorline
 
 " show the matching part of the pair for [] {} and ()
 set showmatch
@@ -139,8 +145,10 @@ set bs=2
 let delimitMate_expand_cr = 1
 
 "colour scheme
-colorscheme apprentice
-set background=dark
+colorscheme xoria256
+hi Normal ctermbg=none
+hi NonText ctermbg=none
+"set background=dark
 
 "Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -151,3 +159,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*/vendor/**
 set wildignore+=*/public/forum/**
+
+"php artisan commands
+abbrev gm !php artisan generate:model
+abbrev gc !php artisan generate:controller
+abbrev gmig !php artisan generate:migration
+
+"remove trailing spaces
+autocmd BufWritePre *.php :%s/\s\+$//e
