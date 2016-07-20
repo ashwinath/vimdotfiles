@@ -70,6 +70,9 @@ map <C-K> <C-W>k<C-W>_
 nmap <leader>w :w!<cr>
 nmap <C-v> :vertical resize +5<cr>
 nmap <C-b> :NERDTreeToggle<cr>
+"CtrlP remapping
+nmap <C-r> :CtrlPBufTag<cr>
+nmap <C-e> :CtrlPMRUFiles<cr>
 
 " highlight search
 set hlsearch
