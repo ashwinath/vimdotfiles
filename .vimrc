@@ -32,6 +32,9 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'romainl/Apprentice'
 Plugin 'vim-scripts/xoria256.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'altercation/vim-colors-solarized.git'
+Plugin 'morhetz/gruvbox'
 
 " Laravel/PHP specific packages
 Plugin 'jwalton512/vim-blade'
@@ -50,9 +53,17 @@ nnoremap <space> za
 "enable syntax highlighting
 syntax enable
 
+" set some gvim variables
+set guifont=Inconsolata\ for\ Powerline:h18
+set linespace=6
+
 " Split down and right
 set splitbelow
 set splitright
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
 
 " lets remap the esc key to something abit easier to press
 inoremap jk <ESC>
@@ -86,7 +97,7 @@ set number
 " set line highlighting
 set cursorline
 " set tabs to have 4 spaces
-set ts=4
+set ts=2
 
 " indent when moving to the next line while writing code
 set autoindent
@@ -100,8 +111,8 @@ set expandtab
 set smarttab
 
 " when using the >> or << commands, shift lines by 4 spaces
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 " show the matching part of the pair for [] {} and ()
 set showmatch
@@ -128,6 +139,7 @@ let mapleader=","
 "airline
 set laststatus=2
 set t_Co=256
+set encoding=utf-8
 "set term=xterm
 let g:airline_powerline_fonts = 1
 " opens nerd tree if no arguments appended to vim
@@ -148,13 +160,14 @@ set bs=2
 let delimitMate_expand_cr = 1
 
 "colour scheme
-colorscheme xoria256
+colorscheme gruvbox
 hi Normal ctermbg=none
 hi NonText ctermbg=none
+set background=dark
 "set background=dark
 
 "Snippets
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<f5>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
@@ -162,11 +175,3 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*/vendor/**
 set wildignore+=*/public/forum/**
-
-"php artisan commands
-abbrev gm !php artisan generate:model
-abbrev gc !php artisan generate:controller
-abbrev gmig !php artisan generate:migration
-
-"remove trailing spaces
-autocmd BufWritePre *.php :%s/\s\+$//e
