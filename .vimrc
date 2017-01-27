@@ -18,6 +18,7 @@ call vundle#begin()
 " "call vundle#begin('~/some/path/here')
 "
 " " let Vundle manage Vundle, required
+Plugin 'terryma/vim-multiple-cursors'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
@@ -35,6 +36,7 @@ Plugin 'vim-scripts/xoria256.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'morhetz/gruvbox'
+Plugin 'ternjs/tern_for_vim'
 
 " Laravel/PHP specific packages
 Plugin 'jwalton512/vim-blade'
@@ -167,7 +169,7 @@ set background=dark
 "set background=dark
 
 "Snippets
-let g:UltiSnipsExpandTrigger="<f5>"
+let g:UltiSnipsExpandTrigger="<f2>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
