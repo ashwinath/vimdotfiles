@@ -37,12 +37,9 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'morhetz/gruvbox'
 Plugin 'ternjs/tern_for_vim'
-
-" Laravel/PHP specific packages
-Plugin 'jwalton512/vim-blade'
-Plugin 'markwu/vim-laravel4-snippets'
-
-autocmd FileType php set ft=php.laravel
+Plugin 'NewProggie/NewProggie-Color-Scheme'
+Plugin 'rhysd/vim-color-spring-night'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 " .vimrc folding
@@ -94,7 +91,7 @@ set incsearch
 
 " show line numbers
 set number
-"set relativenumber
+set relativenumber
 
 " set line highlighting
 set cursorline
@@ -162,7 +159,7 @@ set bs=2
 let delimitMate_expand_cr = 1
 
 "colour scheme
-colorscheme gruvbox
+colorscheme newproggie
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 set background=dark
