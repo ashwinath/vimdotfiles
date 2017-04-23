@@ -37,9 +37,9 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'morhetz/gruvbox'
 Plugin 'ternjs/tern_for_vim'
-Plugin 'NewProggie/NewProggie-Color-Scheme'
 Plugin 'rhysd/vim-color-spring-night'
 Plugin 'tpope/vim-fugitive'
+Plugin 'ejs-syntax'
 
 call vundle#end()
 " .vimrc folding
@@ -139,7 +139,8 @@ let mapleader=","
 set laststatus=2
 set t_Co=256
 set encoding=utf-8
-"set term=xterm
+"set term=xterm-256color
+set term=screen-256color
 let g:airline_powerline_fonts = 1
 " opens nerd tree if no arguments appended to vim
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -159,11 +160,7 @@ set bs=2
 let delimitMate_expand_cr = 1
 
 "colour scheme
-colorscheme newproggie
-hi Normal ctermbg=none
-hi NonText ctermbg=none
-set background=dark
-"set background=dark
+colorscheme spring-night
 
 "Snippets
 let g:UltiSnipsExpandTrigger="<f2>"
