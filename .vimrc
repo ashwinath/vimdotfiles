@@ -36,10 +36,10 @@ Plugin 'vim-scripts/xoria256.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'morhetz/gruvbox'
-Plugin 'ternjs/tern_for_vim'
 Plugin 'rhysd/vim-color-spring-night'
 Plugin 'tpope/vim-fugitive'
-Plugin 'ejs-syntax'
+Plugin 'nikvdp/ejs-syntax'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 " .vimrc folding
@@ -53,7 +53,7 @@ nnoremap <space> za
 syntax enable
 
 " set some gvim variables
-set guifont=Inconsolata\ for\ Powerline:h18
+set guifont=Inconsolata\ for\ Powerline:h22
 set linespace=6
 
 " Split down and right
@@ -110,8 +110,8 @@ set expandtab
 set smarttab
 
 " when using the >> or << commands, shift lines by 4 spaces
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 
 " show the matching part of the pair for [] {} and ()
 set showmatch
@@ -171,3 +171,19 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*/vendor/**
 set wildignore+=*/public/forum/**
+set wildignore+=*/node_modules/**
+
+" TypeScript YouCompleteMe
+if !exists("g:ycm_semantic_triggers")
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
+
+" airline tabline
+"let g:airline#extensions#tabline#enabled = 1
+
+autocmd GUIEnter * set vb t_vb=
+
+let g:jsx_ext_required = 0 " Allow JSX in js files
+let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
