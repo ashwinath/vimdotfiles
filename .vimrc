@@ -53,7 +53,7 @@ nnoremap <space> za
 syntax enable
 
 " set some gvim variables
-set guifont=Inconsolata\ for\ Powerline:h22
+set guifont=Inconsolata\ for\ Powerline:h18
 set linespace=6
 
 " Split down and right
@@ -180,7 +180,7 @@ endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
 
 " airline tabline
-"let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 
 autocmd GUIEnter * set vb t_vb=
 
