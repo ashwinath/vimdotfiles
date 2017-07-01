@@ -36,10 +36,10 @@ Plugin 'vim-scripts/xoria256.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'morhetz/gruvbox'
-Plugin 'rhysd/vim-color-spring-night'
 Plugin 'tpope/vim-fugitive'
 Plugin 'nikvdp/ejs-syntax'
 Plugin 'mxw/vim-jsx'
+Plugin 'jacoborus/tender.vim'
 
 call vundle#end()
 " .vimrc folding
@@ -53,7 +53,7 @@ nnoremap <space> za
 syntax enable
 
 " set some gvim variables
-set guifont=Inconsolata\ for\ Powerline:h18
+set guifont=InconsolataGo\ Nerd\ Font\ Complete:h17
 set linespace=6
 
 " Split down and right
@@ -79,7 +79,7 @@ map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 nmap <leader>w :w!<cr>
 nmap <C-v> :vertical resize +5<cr>
-nmap <C-b> :NERDTreeToggle<cr>
+nmap <C-t> :NERDTreeToggle<cr>
 "CtrlP remapping
 nmap <C-r> :CtrlPBufTag<cr>
 nmap <C-e> :CtrlPMRUFiles<cr>
@@ -139,8 +139,6 @@ let mapleader=","
 set laststatus=2
 set t_Co=256
 set encoding=utf-8
-"set term=xterm-256color
-set term=screen-256color
 let g:airline_powerline_fonts = 1
 " opens nerd tree if no arguments appended to vim
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -160,7 +158,8 @@ set bs=2
 let delimitMate_expand_cr = 1
 
 "colour scheme
-colorscheme spring-night
+colorscheme tender
+set background=dark
 
 "Snippets
 let g:UltiSnipsExpandTrigger="<f2>"
@@ -180,7 +179,7 @@ endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
 
 " airline tabline
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 
 autocmd GUIEnter * set vb t_vb=
 
