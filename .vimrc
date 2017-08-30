@@ -20,7 +20,6 @@ call vundle#begin()
 " " let Vundle manage Vundle, required
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'tomtom/tlib_vim'
@@ -31,15 +30,16 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'romainl/Apprentice'
-Plugin 'vim-scripts/xoria256.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-fugitive'
 Plugin 'nikvdp/ejs-syntax'
 Plugin 'mxw/vim-jsx'
-Plugin 'jacoborus/tender.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'shime/vim-livedown'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Shougo/vimproc.vim'
 
 call vundle#end()
 " .vimrc folding
@@ -79,7 +79,7 @@ map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 nmap <leader>w :w!<cr>
 nmap <C-v> :vertical resize +5<cr>
-nmap <C-t> :NERDTreeToggle<cr>
+nmap <C-b> :NERDTreeToggle<cr>
 "CtrlP remapping
 nmap <C-r> :CtrlPBufTag<cr>
 nmap <C-e> :CtrlPMRUFiles<cr>
@@ -96,7 +96,7 @@ set relativenumber
 " set line highlighting
 set cursorline
 " set tabs to have 2 spaces
-set ts=2
+set ts=4
 
 " indent when moving to the next line while writing code
 set autoindent
@@ -110,8 +110,8 @@ set expandtab
 set smarttab
 
 " when using the >> or << commands, shift lines by 2 spaces
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 
 " show the matching part of the pair for [] {} and ()
 set showmatch
@@ -158,11 +158,11 @@ set bs=2
 let delimitMate_expand_cr = 1
 
 "colour scheme
-colorscheme tender
+colorscheme gruvbox
 set background=dark
 
 "Snippets
-let g:UltiSnipsExpandTrigger="<f2>"
+let g:UltiSnipsExpandTrigger="<C-Space>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
@@ -178,11 +178,15 @@ if !exists("g:ycm_semantic_triggers")
 endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
 
+" TypeScript linting
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
+
 " airline tabline
 "let g:airline#extensions#tabline#enabled = 1
 
 autocmd GUIEnter * set vb t_vb=
 
 let g:jsx_ext_required = 0 " Allow JSX in js files
-let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_checkers = ['jsxhint', 'eslint']
 let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
