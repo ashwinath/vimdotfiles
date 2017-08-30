@@ -40,6 +40,7 @@ Plugin 'shime/vim-livedown'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'posva/vim-vue'
 
 call vundle#end()
 " .vimrc folding
