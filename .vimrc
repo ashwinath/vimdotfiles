@@ -21,15 +21,14 @@ call vundle#begin()
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'bling/vim-airline'
+Plugin 'itchyny/lightline.vim'
 Plugin 'tomtom/tlib_vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-surround'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-fugitive'
@@ -41,8 +40,13 @@ Plugin 'Quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'posva/vim-vue'
+Plugin 'junegunn/fzf.vim'
+Plugin 'mileszs/ack.vim'
 
 call vundle#end()
+" Mapping keys
+let mapleader=","
+
 " .vimrc folding
 augroup filetype_vim
   autocmd FileType vim setlocal foldmethod=marker
@@ -78,12 +82,8 @@ map <C-H> <C-W>h<C-W>_
 map <C-L> <C-W>l<C-W>_
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
-nmap <leader>w :w!<cr>
 nmap <C-v> :vertical resize +5<cr>
-nmap <C-b> :NERDTreeToggle<cr>
-"CtrlP remapping
-nmap <C-r> :CtrlPBufTag<cr>
-nmap <C-e> :CtrlPMRUFiles<cr>
+nmap <leader>p :NERDTreeToggle<cr>
 
 " highlight search
 set hlsearch
@@ -133,14 +133,11 @@ set backupdir=~/.vim/backup/
 set directory=~/.vim/backup/
 " " }}}
 
-" Mapping keys
-let mapleader=","
 
 "airline
 set laststatus=2
 set t_Co=256
 set encoding=utf-8
-let g:airline_powerline_fonts = 1
 " opens nerd tree if no arguments appended to vim
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeSHowHidden=1
@@ -167,12 +164,6 @@ let g:UltiSnipsExpandTrigger="<C-Space>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-"ctrlp wildignores
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*/vendor/**
-set wildignore+=*/public/forum/**
-set wildignore+=*/node_modules/**
-
 " TypeScript YouCompleteMe
 if !exists("g:ycm_semantic_triggers")
   let g:ycm_semantic_triggers = {}
@@ -191,3 +182,29 @@ autocmd GUIEnter * set vb t_vb=
 let g:jsx_ext_required = 0 " Allow JSX in js files
 let g:syntastic_javascript_checkers = ['jsxhint', 'eslint']
 let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
+
+" fzf vim settings
+nmap ; :Buffers<CR>
+nmap <C-p> :Files<CR>
+nmap <C-t> :Tags<CR>
+
+" for macos
+if has('macunix')
+    set rtp+=/usr/local/opt/fzf
+endif
+let g:fzf_tags_command = 'ctags -R'
+
+function! s:fzf_statusline()
+  " Override statusline as you like
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
+
+" Silver searcher
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
