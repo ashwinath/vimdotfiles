@@ -41,6 +41,7 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'junegunn/fzf.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'nvie/vim-flake8'
 
 call vundle#end()
 
@@ -184,9 +185,11 @@ endif
 " force python version to be 3
 let g:jedi#force_py_version = 3
 
+" I do realise that flake8 and neovim python packages need to be installed
+" into the virtual env as well.
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
-\   'python': ['pylint'],
+\   'python': ['flake8'],
 \}
 
 """"""""""""""""""""""""""""""""""""""
